@@ -175,6 +175,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * debug tools
+         */
+        Clockwork\Support\Laravel\ClockworkServiceProvider::class
     ],
 
     /*
@@ -229,7 +233,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        // debug tools
+        'Clockwork' => Clockwork\Support\Laravel\Facade::class,
     ],
 
 ];
