@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Laravel\Sanctum\Sanctum;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // create_personal_access_tokens_table を作らない
+        // https://qiita.com/ucan-lab/items/6a3481b389a886115ada
+        Sanctum::ignoreMigrations();
     }
 
     /**

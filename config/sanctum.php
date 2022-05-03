@@ -12,7 +12,9 @@ return [
     | and production domains which access your API via a frontend SPA.
     |
     */
-
+    // 本番ではフロントエンドの FQDN を設定する
+    // 開発では localhost:3000 は定義済みのため設定不要
+    // https://qiita.com/ucan-lab/items/3e7045e49658763a9566
     'stateful' => explode(',', env('SANCTUM_STATEFUL_DOMAINS', sprintf(
         '%s%s',
         'localhost,localhost:3000,127.0.0.1,127.0.0.1:8000,::1',
