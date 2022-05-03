@@ -64,4 +64,12 @@ return [
         'encrypt_cookies' => App\Http\Middleware\EncryptCookies::class,
     ],
 
+    // デフォルトの設定だと http://localhost/api/sanctum/csrf-token でアクセスするため
+    // /api/sanctum/csrf-cookie の url は CORS ポリシーによって拒否される
+    // この設定は、通常の CORS 設定（Access-Control-Allow-Origin ヘッダの追加）をしていても設定しないといけない
+    // /api/csrf-cookie の url になるため許可されるとか書いてあるが、なくても動いた。
+    // https://laracasts.com/discuss/channels/laravel/sancton-cors-issue?page=1&replyId=628592
+
+    // 'prefix' => 'api'
+
 ];
