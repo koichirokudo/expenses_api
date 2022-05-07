@@ -28,7 +28,7 @@ class AuthControllerTest extends TestCase
         $this->postJson('/api/login', $params)
             ->assertStatus(200)
             ->assertJson([
-                'message' => 'ログインに成功しました。'
+                'message' => 'ログインに成功しました。',
             ]);
     }
 
