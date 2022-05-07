@@ -42,7 +42,6 @@ class UserControllerTest extends TestCase
             ->assertJson([
                 'data' => [],
                 'status' => 'error',
-                'summary' => 'バリデーションに失敗しました。',
                 'errors' => [
                     'email' => ['メールアドレスが未入力です。'],
                     'password' => ['パスワードが未入力です。'],
@@ -65,10 +64,11 @@ class UserControllerTest extends TestCase
             ->getJson('/api/me')
             ->assertStatus(200)
             ->assertJson([
-                'data' => [
+                'user' => [
                     'id' => $user->id,
                     'email' => $user->email,
                     'password' => $user->password,
+                    'initial' => $user->initial,
                 ],
             ]);
     }
