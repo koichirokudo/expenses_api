@@ -68,7 +68,6 @@ class UserControllerTest extends TestCase
                     'id' => $user->id,
                     'email' => $user->email,
                     'password' => $user->password,
-                    'initial' => $user->initial,
                 ],
             ]);
     }
