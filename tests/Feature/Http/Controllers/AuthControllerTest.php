@@ -48,14 +48,9 @@ class AuthControllerTest extends TestCase
         ];
 
         $this->postJson('/api/login', $params)
-            ->assertStatus(422)
+            ->assertStatus(401)
             ->assertJson([
-                'data' => [],
-                'status' => 'error',
-                'summary' => 'バリデーションに失敗しました。',
-                'errors' => [
-                    'password' => ['最低10文字以上のパスワードを入力してください。'],
-                ],
+                'message' => 'メールアドレスまたはパスワードが違います。'
             ]);
     }
 
