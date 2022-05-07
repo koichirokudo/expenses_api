@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class StoreUser extends FormRequest
+class LoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,7 @@ class StoreUser extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string', 'min:10', 'max:24'],
         ];
     }
@@ -37,7 +37,6 @@ class StoreUser extends FormRequest
             'email.required' => 'メールアドレスが未入力です。',
             'email.email' => 'メールアドレスとして正しい形式ではありません。',
             'email.max' => '最大入力文字数は255文字です。',
-            'email.unique' => '既に登録されているメールアドレスです。',
             'password.required' => 'パスワードが未入力です。',
             'password.min' => '最低10文字以上のパスワードを入力してください。',
         ];
