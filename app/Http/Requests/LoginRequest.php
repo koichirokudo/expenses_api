@@ -26,8 +26,8 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['required', 'string', 'email', 'max:255'],
-            'password' => ['required', 'string', 'min:10', 'max:24'],
+            'email' => ['required'],
+            'password' => ['required'],
         ];
     }
 
@@ -35,10 +35,7 @@ class LoginRequest extends FormRequest
     {
         return [
             'email.required' => 'メールアドレスが未入力です。',
-            'email.email' => 'メールアドレスとして正しい形式ではありません。',
-            'email.max' => '最大入力文字数は255文字です。',
             'password.required' => 'パスワードが未入力です。',
-            'password.min' => '最低10文字以上のパスワードを入力してください。',
         ];
     }
 
@@ -47,7 +44,6 @@ class LoginRequest extends FormRequest
         $data = [
             'data' => [],
             'status' => 'error',
-            'summary' => 'バリデーションに失敗しました。',
             'errors' => $validator->errors()->toArray(),
         ];
 
