@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
@@ -14,7 +15,7 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::post('/register', [AuthController::class, 'register']);
+Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 // sanctum 認証ガードを使用することにより、認証済みのユーザーのみがアクセス可能
-Route::post('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
+Route::get('/me', [UserController::class, 'me'])->middleware('auth:sanctum');
