@@ -26,6 +26,7 @@ class StoreUser extends FormRequest
     public function rules()
     {
         return [
+            'name' => ['required', 'string', 'min:3', 'max:20'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:10', 'max:24'],
         ];
@@ -34,6 +35,9 @@ class StoreUser extends FormRequest
     public function messages()
     {
         return [
+            'name.required' => 'ニックネームが未入力です。',
+            'name.min' => 'ニックネームは3文字から20字まで入力できます。',
+            'name.max' => 'ニックネームは3文字から20字まで入力できます。',
             'email.required' => 'メールアドレスが未入力です。',
             'email.email' => 'メールアドレスとして正しい形式ではありません。',
             'email.max' => '最大入力文字数は255文字です。',
