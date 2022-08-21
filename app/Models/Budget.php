@@ -11,13 +11,11 @@ class Budget extends Model
 
     protected $fillable = [
         'budget_id',
-        'user_id',
-        'bop_id',
+        'types',
         'date',
-        'category_id',
-        'note',
+        'user_id',
+        'category',
         'money',
-        'split_bill',
-        'share',
+        'note',
     ];
 }
