@@ -11,22 +11,18 @@ class CreateBudgetsTable extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('budgets', function (Blueprint $table) {
-            $table->id('budget_id');
-            $table->bigInteger('user_id');
-            $table->bigInteger('bop_id');
+            $table->id();
+            $table->integer('types');
             $table->date('date');
-            $table->bigInteger('category_id');
-            $table->string('note');
+            $table->bigInteger('user_id');
+            $table->string('category');
             $table->integer('money');
-            $table->boolean('split_bill');
-            $table->boolean('share');
+            $table->string('note');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('bop_id')->references('id')->on('bops');
-            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
@@ -35,7 +31,7 @@ class CreateBudgetsTable extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('budgets');
     }
