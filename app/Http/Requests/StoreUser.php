@@ -13,7 +13,7 @@ class StoreUser extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -23,16 +23,16 @@ class StoreUser extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'min:3', 'max:20'],
+            'name' => ['required', 'string', 'min:2', 'max:20'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:10', 'max:24'],
         ];
     }
 
-    public function messages()
+    public function messages(): array
     {
         return [
             'name.required' => 'ニックネームが未入力です。',
@@ -52,7 +52,7 @@ class StoreUser extends FormRequest
         $data = [
             'data' => [],
             'status' => 'error',
-            'summary' => 'バリデーションに失敗しました。',
+            'summary' => 'validation error.',
             'errors' => $validator->errors()->toArray(),
         ];
 
