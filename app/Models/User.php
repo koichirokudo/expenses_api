@@ -13,9 +13,5 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'initial',
-        'share',
-        'created',
-        'modified',
     ];
 }
