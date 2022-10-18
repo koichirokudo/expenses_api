@@ -20,7 +20,7 @@ class CreateBudgetsTable extends Migration
             $table->bigInteger('user_id');
             $table->string('category');
             $table->integer('money');
-            $table->string('note');
+            $table->string('note')->nullable(true);
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });
