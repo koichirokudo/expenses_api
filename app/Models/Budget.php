@@ -10,7 +10,6 @@ class Budget extends Model
     use HasFactory;
 
     protected $fillable = [
-        'budget_id',
         'types',
         'date',
         'user_id',
