@@ -31,7 +31,7 @@ class StoreExpenses extends FormRequest
             'user_id' => ['required', 'integer'],
             'category' => ['required', 'string'],
             'money' => ['required', 'integer'],
-            'note' => ['max:255'],
+            'note' => ['max:30'],
         ];
     }
 
@@ -43,7 +43,8 @@ class StoreExpenses extends FormRequest
             'user_id.required' => '支払い人が未入力です。',
             'category.required' => 'カテゴリが未入力です。',
             'money.required' => '金額が未入力です。',
-            'note.max' => '最大入力文字数は255文字です。',
+            'money.integer' => '金額は数値を入力してください。',
+            'note.max' => '最大入力文字数は30文字です。',
         ];
     }
 
